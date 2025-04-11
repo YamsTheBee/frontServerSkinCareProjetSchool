@@ -1,0 +1,69 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Node
+node_modules/
+node/
+
+# Build output
+dist/
+dist-ssr/
+build/
+out/
+.storybook-out/
+
+# Dependency directories
+.cache/
+.npm/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Coverage
+coverage/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.iml
+
+# ESLint and Prettier
+.eslintcache
+.prettiercache
+
+# TypeScript
+*.tsbuildinfo
+
+# Local databases
+*.sqlite
+*.sqlite3
+
+# Others (optional)
+.yarn-integrity
+.expo/

@@ -1,0 +1,48 @@
+/* footer.css */
+
+.footer {
+	background-color: #1e293b; /* Couleur de fond sombre */
+	color: #ffffff; /* Texte blanc */
+	padding: 4rem 0;
+	font-family: 'Arial', sans-serif;
+}
+
+.footer .max-w-7xl {
+	display: grid;
+	gap: 2rem;
+}
+
+.footer h3 {
+	font-size: 1.25rem;
+	margin-bottom: 1rem;
+	color: #f3f4f6;
+}
+
+.footer p,
+.footer ul {
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+.footer a {
+	color: #94a3b8;
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+.footer a:hover {
+	color: #cbd5e1;
+}
+
+.footer .space-y-2 {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.footer .grid-cols-4 {
+			grid-template-columns: 1fr;
+	}
+}
