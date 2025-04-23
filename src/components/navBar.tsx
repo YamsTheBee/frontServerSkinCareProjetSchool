@@ -1,8 +1,8 @@
 import type React from "react";
 import { useState } from "react";
 import MonCompteModal from "./monCompteModal";
-import viteLogo from "/vite.svg";
-import "./navBar.css";
+import SkinCareLogo from "../assets/LogokinCare.png";
+import "./navBar.css"; // Assurez-vous que ce fichier est bien importé
 import { Link } from "react-router-dom";
 
 const NavBar: React.FC = () => {
@@ -20,8 +20,8 @@ const NavBar: React.FC = () => {
 		<div>
 			<nav className="nav-container">
 				<div>
-					<a href="https://vite.dev" target="_blank" rel="noreferrer">
-						<img src={viteLogo} className="logo" alt="Vite logo" />
+					<a href="/Home" target="_blank" rel="noreferrer">
+						<img src={SkinCareLogo} className="logo" alt="Vite logo" />
 					</a>
 				</div>
 				<ul className="header-ulNav">
