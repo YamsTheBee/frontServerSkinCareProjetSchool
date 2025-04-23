@@ -1,31 +1,35 @@
-/* footer.css */
-
+/* Footer CSS */
 .footer {
-	background-color: #1e293b; /* Couleur de fond sombre */
-	color: #ffffff; /* Texte blanc */
-	padding: 4rem 0;
-	font-family: 'Arial', sans-serif;
+	background-color: #cbd5e1;
+	color: black;
+	padding: 1rem 0;
+	font-family: "Arial", sans-serif;
 }
 
 .footer .max-w-7xl {
-	display: grid;
-	gap: 2rem;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
 }
 
 .footer h3 {
 	font-size: 1.25rem;
 	margin-bottom: 1rem;
-	color: #f3f4f6;
+	color: black;
+	font-family: "Cormorant Garamond", serif;
 }
 
 .footer p,
 .footer ul {
 	font-size: 1rem;
 	line-height: 1.5;
+	list-style: none;
+	font-family: "Cormorant Garamond", serif;
+	color: black;
 }
 
 .footer a {
-	color: #94a3b8;
+	color: #51565cf8;
 	text-decoration: none;
 	transition: color 0.3s ease;
 }
@@ -43,6 +47,6 @@
 /* Responsive Design */
 @media (max-width: 768px) {
 	.footer .grid-cols-4 {
-			grid-template-columns: 1fr;
+		grid-template-columns: 1fr;
 	}
 }

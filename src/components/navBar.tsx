@@ -3,6 +3,7 @@ import { useState } from "react";
 import MonCompteModal from "./monCompteModal";
 import viteLogo from "/vite.svg";
 import "./navBar.css";
+import { Link } from "react-router-dom";
 
 const NavBar: React.FC = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,12 +26,10 @@ const NavBar: React.FC = () => {
 				</div>
 				<ul className="header-ulNav">
 					<li>
-						{/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
-						<a href="#">Accueil</a>
+						<Link to="/">Accueil</Link>
 					</li>
 					<li>
-						{/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
-						<a href="#">Produits</a>
+						<Link to="/productPage">Produits</Link>
 					</li>
 					<li>
 						{/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}

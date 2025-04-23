@@ -1,3 +1,4 @@
+// FORMULAIRE ADD NEW PRODUCT
 import type React from "react";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";

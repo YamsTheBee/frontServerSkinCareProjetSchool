@@ -10,7 +10,7 @@ import UserForm from "./components/userForm.tsx";
 import type { Product } from "./Types/Types.ts";
 import ProductCard from "./components/productscard/ProductCard.tsx";
 import DetailProducts from "./components/detailProducts.tsx";
-import ProductPage from "./pages/products.tsx";
+import ProductPage from "./pages/productsPage.tsx";
 
 const router = createBrowserRouter([
 	{

@@ -54,58 +54,6 @@ h1 {
 	opacity: 0.8;
 }
 
-/* Footer CSS */
-.footer {
-	background-color: #cbd5e1;
-	color: black;
-	padding: 1rem 0;
-	font-family: "Arial", sans-serif;
-}
-
-.footer .max-w-7xl {
-	display: flex;
-	justify-content: space-around;
-	flex-wrap: wrap;
-}
-
-.footer h3 {
-	font-size: 1.25rem;
-	margin-bottom: 1rem;
-	color: black;
-	font-family: "Cormorant Garamond", serif;
-}
-
-.footer p,
-.footer ul {
-	font-size: 1rem;
-	line-height: 1.5;
-	list-style: none;
-	font-family: "Cormorant Garamond", serif;
-	color: black;
-}
-
-.footer a {
-	color: #51565cf8;
-	text-decoration: none;
-	transition: color 0.3s ease;
-}
-
-.footer a:hover {
-	color: #cbd5e1;
-}
-
-.footer .space-y-2 {
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-	.footer .grid-cols-4 {
-		grid-template-columns: 1fr;
-	}
-}
 
 /* Form Styles */
 form {
