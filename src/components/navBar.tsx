@@ -1,21 +1,48 @@
+import type React from "react";
+import { useState } from "react";
+import MonCompteModal from "./monCompteModal";
 import viteLogo from "/vite.svg";
+import "./navBar.css";
 
-function NavBar() {
+const NavBar: React.FC = () => {
+	const [isModalOpen, setIsModalOpen] = useState(false);
+
+	const openModal = () => {
+		setIsModalOpen(true);
+	};
+
+	const closeModal = () => {
+		setIsModalOpen(false);
+	};
+
 	return (
-		<nav className="nav-container">
-			<div>
-				<a href="https://vite.dev" target="_blank" rel="noreferrer">
-					<img src={viteLogo} className="logo" alt="Vite logo" />
-				</a>
-			</div>
-			<ul className="header-ulNav">
-				<li className="header-active" />
-				<li>Nos produits</li>
-				<li>Contact</li>
-				<li>Rendez-Vous</li>
-				<li>Mon compte</li>
-			</ul>
-		</nav>
+		<div>
+			<nav className="nav-container">
+				<div>
+					<a href="https://vite.dev" target="_blank" rel="noreferrer">
+						<img src={viteLogo} className="logo" alt="Vite logo" />
+					</a>
+				</div>
+				<ul className="header-ulNav">
+					<li>
+						{/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
+						<a href="#">Accueil</a>
+					</li>
+					<li>
+						{/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
+						<a href="#">Produits</a>
+					</li>
+					<li>
+						{/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
+						<a href="#" onClick={openModal}>
+							Mon Compte
+						</a>
+					</li>
+				</ul>
+			</nav>
+			<MonCompteModal isOpen={isModalOpen} onClose={closeModal} />
+		</div>
 	);
-}
+};
+
 export default NavBar;

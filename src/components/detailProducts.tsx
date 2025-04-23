@@ -2,6 +2,7 @@ import type React from "react";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ProductCard from "../components/productscard/ProductCard";
 
 interface Product {
 	id?: number;
@@ -20,7 +21,7 @@ const initialForm: Product = {
 	product_url: "",
 };
 
-const Products: React.FC = () => {
+const DetailProducts: React.FC = () => {
 	const [products, setProducts] = useState<Product[]>([]);
 	const [form, setForm] = useState<Product>(initialForm);
 	const [isEditing, setIsEditing] = useState(false);
@@ -95,7 +96,7 @@ const Products: React.FC = () => {
 		<div className="p-4 max-w-4xl mx-auto">
 			<ToastContainer />
 			<h1 className="text-3xl font-bold text-center text-purple-700 mb-6">
-				Ajouter ou modifier un produit
+				Ajouter un nouveau produit
 			</h1>
 
 			<form
@@ -156,37 +157,26 @@ const Products: React.FC = () => {
 			</form>
 
 			<div className="product-list mt-8">
-				<h2 className="text-xl font-semibold mb-4">Liste des produits</h2>
-				{products.map((prod) => (
-					<div
-						key={prod.id}
-						className="product-item flex justify-between items-center p-3 border-b"
-					>
-						<div>
-							<p className="font-semibold">{prod.name}</p>
-							<p className="text-sm text-gray-600">{prod.description}</p>
-						</div>
-						<div className="actions space-x-2">
-							{/* biome-ignore lint/a11y/useButtonType: <explanation> */}
-							<button
-								onClick={() => handleEdit(prod)}
-								className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600"
-							>
-								Éditer
-							</button>
-							{/* biome-ignore lint/a11y/useButtonType: <explanation> */}
-							<button
-								onClick={() => handleDelete(prod.id)}
-								className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
-							>
-								Supprimer
-							</button>
-						</div>
-					</div>
-				))}
+				{/* <h2 className="text-xl font-semibold mb-4">Liste des produits</h2> */}
+				{/* <ProductCard product={undefined} onEdit={(product: Product): void => {
+					throw new Error("Function not implemented.");
+				} } onDelete={(id?: number): void => {
+					throw new Error("Function not implemented.");
+				} }/> */}
+
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+					{products.map((prod) => (
+						<ProductCard
+							key={prod.id}
+							product={prod}
+							onEdit={handleEdit}
+							onDelete={handleDelete}
+						/>
+					))}
+				</div>
 			</div>
 		</div>
 	);
 };
 
-export default Products;
+export default DetailProducts;
