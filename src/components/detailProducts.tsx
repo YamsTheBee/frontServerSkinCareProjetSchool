@@ -3,7 +3,6 @@ import type React from "react";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ProductCard from "../components/productscard/ProductCard";
 
 interface Product {
 	id?: number;
@@ -23,7 +22,7 @@ const initialForm: Product = {
 };
 
 const DetailProducts: React.FC = () => {
-	const [products, setProducts] = useState<Product[]>([]);
+	const [, setProducts] = useState<Product[]>([]);
 	const [form, setForm] = useState<Product>(initialForm);
 	const [isEditing, setIsEditing] = useState(false);
 
@@ -75,31 +74,12 @@ const DetailProducts: React.FC = () => {
 		}
 	};
 
-	const handleEdit = (product: Product) => {
-		setForm(product);
-		setIsEditing(true);
-	};
-
-	const handleDelete = async (id?: number) => {
-		if (!id) return;
-		const res = await fetch(`http://localhost:4242/api/products/${id}`, {
-			method: "DELETE",
-		});
-		if (res.ok) {
-			toast.info("Produit supprimé.");
-			fetchProducts();
-		} else {
-			toast.error("Erreur lors de la suppression.");
-		}
-	};
-
 	return (
 		<div className="p-4 max-w-4xl mx-auto">
 			<ToastContainer />
 			<h1 className="text-3xl font-bold text-center text-purple-700 mb-6">
 				Ajouter un nouveau produit
 			</h1>
-
 			<form
 				onSubmit={handleSubmit}
 				className="space-y-4 bg-white p-6 rounded-xl shadow-md"
@@ -156,26 +136,7 @@ const DetailProducts: React.FC = () => {
 					{isEditing ? "Modifier le produit" : "Ajouter le produit"}
 				</button>
 			</form>
-
-			<div className="product-list mt-8">
-				{/* <h2 className="text-xl font-semibold mb-4">Liste des produits</h2> */}
-				{/* <ProductCard product={undefined} onEdit={(product: Product): void => {
-					throw new Error("Function not implemented.");
-				} } onDelete={(id?: number): void => {
-					throw new Error("Function not implemented.");
-				} }/> */}
-
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-					{products.map((prod) => (
-						<ProductCard
-							key={prod.id}
-							product={prod}
-							onEdit={handleEdit}
-							onDelete={handleDelete}
-						/>
-					))}
-				</div>
-			</div>
+			-
 		</div>
 	);
 };

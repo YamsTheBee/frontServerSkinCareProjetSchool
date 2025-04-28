@@ -1,4 +1,3 @@
-import Footer from "../components/footer";
 import WelcomeSection from "../components/welcome";
 import "./Home.css";
 function Home() {
@@ -6,7 +5,6 @@ function Home() {
 		<div className="HomeContent">
 			<div className="HomeSection">
 				<WelcomeSection />
-				<Footer />
 			</div>
 		</div>
 	);

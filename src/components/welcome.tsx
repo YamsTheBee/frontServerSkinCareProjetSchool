@@ -1,16 +1,33 @@
-// import { useState } from "react";
-// import UserForm from "./userForm"; // Assurez-vous que le chemin est correct
-
+import { useState } from "react";
+import RendezVous from "../components/RDV/RendezVous";
 import "./Welcome.css";
 
 function Welcome() {
+	const [showRendezVous, setShowRendezVous] = useState(false);
+
+	const handleTakeAppointment = () => {
+		setShowRendezVous(true);
+	};
+
+	const handleBack = () => {
+		setShowRendezVous(false);
+	};
+
 	return (
 		<div className="welcome-section">
 			<div className="welcome-content">
 				<h1>Transform your skin</h1>
 				<p>Découvrez nos solutions pour une peau en bonne santé.</p>
-				{/* biome-ignore lint/a11y/useButtonType: <explanation> */}
-				<button className="cta-button">Prendre un rdv</button>
+				{!showRendezVous && (
+					<button
+						type="button"
+						className="cta-button"
+						onClick={handleTakeAppointment}
+					>
+						Prendre un rdv
+					</button>
+				)}
+				{showRendezVous && <RendezVous onBack={handleBack} />}
 			</div>
 		</div>
 	);

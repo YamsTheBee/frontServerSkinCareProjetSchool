@@ -4,8 +4,36 @@
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
-	padding-right: 40px;
+	padding: 0 40px;
 	height: 80px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+}
+
+.logo-container {
+	display: flex;
+	align-items: center;
+	padding: 10px 0;
+}
+
+.logo-link {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+}
+
+.logo {
+	height: 50px;
+	width: auto;
+	transition: all 0.3s ease;
+	filter: brightness(0) invert(1);
+}
+
+.logo:hover {
+	transform: scale(1.05);
+	filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
 }
 
 .header-ulNav {
@@ -15,38 +43,51 @@
 	color: aliceblue;
 	gap: 30px;
 	font-family: "Cormorant Garamond", serif;
+	margin: 0;
+	padding: 0;
 }
 
 .header-ulNav a {
 	color: aliceblue;
 	text-decoration: none;
 	position: relative;
+	padding: 8px 12px;
+	border-radius: 4px;
+	transition: all 0.3s ease;
 }
 
 .header-ulNav a::after {
 	content: "";
 	position: absolute;
-	left: 0;
-	bottom: -2px;
-	width: 0%;
+	width: 0;
 	height: 2px;
-	background-color: aliceblue;
-	transition: width 0.3s ease;
+	bottom: 0;
+	left: 50%;
+	background-color: #fff;
+	transition: all 0.3s ease;
+	transform: translateX(-50%);
 }
 
 .header-ulNav a:hover::after {
 	width: 100%;
 }
 
-.logo {
-	margin-left: 20px;
-	will-change: filter;
-	transition: filter 300ms;
-	width: 130px; /* Ajustez la largeur selon vos besoins */
-	height: auto; /* Conserve les proportions */
-	padding: 0; /* Supprime le padding pour éviter les espaces inutiles */
+.header-ulNav a:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+	transform: translateY(-2px);
 }
 
-.logo:hover {
-	filter: drop-shadow(0 0 2em #646cffaa);
+@media (max-width: 768px) {
+	.nav-container {
+		padding: 0 20px;
+	}
+
+	.logo {
+		height: 40px;
+	}
+
+	.header-ulNav {
+		font-size: 16px;
+		gap: 15px;
+	}
 }

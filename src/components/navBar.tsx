@@ -19,10 +19,10 @@ const NavBar: React.FC = () => {
 	return (
 		<div>
 			<nav className="nav-container">
-				<div>
-					<a href="/Home" target="_blank" rel="noreferrer">
-						<img src={SkinCareLogo} className="logo" alt="Vite logo" />
-					</a>
+				<div className="logo-container">
+					<Link to="/" className="logo-link">
+						<img src={SkinCareLogo} className="logo" alt="SkinCare Logo" />
+					</Link>
 				</div>
 				<ul className="header-ulNav">
 					<li>

@@ -9,16 +9,14 @@
 .welcome-section {
 	position: relative;
 	background-image: url("https://charettecosmetics.com/wp-content/uploads/2022/07/cc-hero.jpg");
-	/* margin-left: 100px;
-	margin-right: 100px; */
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	height: 80vh;
 	display: flex;
-	justify-content: center; /* Center horizontally */
-	align-items: center; /* Center vertically */
+	justify-content: center;
+	align-items: center;
 }
 
 .welcome-content {
@@ -27,15 +25,12 @@
 	flex-direction: column;
 	align-items: center;
 	max-width: 500px;
-	height: 180px;
-	padding: 10px;
-	border-radius: 8px;
+	height: 160px;
+	padding: 2rem;
+	border-radius: 0.5rem;
 	background-color: rgba(241, 243, 241, 0.591);
 	font-family: "Cormorant Garamond", serif;
-	text-align: center; /* Center text within the content */
-	h1 {
-		color: black;
-	}
+	text-align: center;
 }
 
 .welcome-content h1 {

@@ -9,7 +9,7 @@ interface MonCompteModalProps {
 	onClose: () => void;
 }
 
-const MoncompteModal: React.FC<MonCompteModalProps> = ({ isOpen, onClose }) => {
+const MonCompteModal: React.FC<MonCompteModalProps> = ({ isOpen, onClose }) => {
 	const [isRegistering, setIsRegistering] = useState(false); // Pour basculer entre connexion et inscription
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -67,57 +67,36 @@ const MoncompteModal: React.FC<MonCompteModalProps> = ({ isOpen, onClose }) => {
 
 	return (
 		<div className="modal-overlay">
-			<div className="modal-form">
-				<h2>{isRegistering ? "Créer un compte" : "Se connecter"}</h2>
-
-				{/* Afficher soit le formulaire d'inscription, soit de connexion */}
-				{isRegistering ? (
-					<RegisterForm />
-				) : (
-					<form onSubmit={handleSubmit}>
-						<div>
-							<label htmlFor="email">Votre email* :</label>
-							<input
-								id="email"
-								type="email"
-								value={email}
-								onChange={(e) => setEmail(e.target.value)}
-								aria-label="Email"
-							/>
-						</div>
-
-						<label htmlFor="password">Mot de passe :</label>
+			<div className="modal-container">
+				<button type="button" className="modal-close-btn" onClick={onClose}>
+					×
+				</button>
+				<h2 className="text-primary">Mon Compte</h2>
+				{!isRegistering ? (
+					<div className="modal-form">
+						<input type="email" placeholder="Email" className="form-input" />
 						<input
-							id="password"
 							type="password"
-							value={password}
-							onChange={(e) => setPassword(e.target.value)}
-							aria-label="Mot de passe"
+							placeholder="Mot de passe"
+							className="form-input"
 						/>
-
-						{/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
-						<a href="#">Mot de passe oublié ?</a>
-
-						<button type="submit" disabled={isSubmitting}>
-							{isSubmitting ? "Connexion..." : "Se connecter"}
+						<button type="submit" className="btn-primary">
+							Se connecter
 						</button>
-
-						<div>
-							<p>Vous n'avez pas encore de compte ?</p>
-						</div>
-
-						{/* Bouton pour basculer vers l'inscription */}
-						<button type="button" onClick={() => setIsRegistering(true)}>
-							Créer mon compte
+						<button
+							type="button"
+							className="btn-secondary"
+							onClick={() => setIsRegistering(true)}
+						>
+							Créer un compte
 						</button>
-					</form>
+					</div>
+				) : (
+					<RegisterForm />
 				)}
-
-				{errorMessage && <p className="text-red-500">{errorMessage}</p>}
-				{successMessage && <p className="text-green-500">{successMessage}</p>}
 			</div>
 		</div>
 	);
 };
 
-export default MoncompteModal;
+export default MonCompteModal;

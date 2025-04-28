@@ -6,13 +6,81 @@ body {
 	padding: 0;
 }
 
-/* Header */
-h1 {
+/* Common Button Styles */
+.btn-primary {
+	background-color: #1d3940;
+	color: white;
+	padding: 0.75rem 1.5rem;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	border: none;
+	font-size: 1rem;
+}
+
+.btn-primary:hover {
+	background-color: #f59e0b;
+	transform: translateY(-2px);
+}
+
+.btn-secondary {
+	background-color: transparent;
+	color: #1d3940;
+	padding: 0.75rem 1.5rem;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	border: 1px solid #1d3940;
+	font-size: 1rem;
+}
+
+.btn-secondary:hover {
+	background-color: #1d3940;
+	color: white;
+}
+
+/* Common Form Styles */
+.form-container {
+	background-color: white;
+	padding: 2rem;
+	border-radius: 1rem;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	max-width: 600px;
+	margin: auto;
+}
+
+.form-input {
+	width: 100%;
+	padding: 1rem;
+	border: 1px solid #d1d5db;
+	border-radius: 0.5rem;
+	margin-bottom: 1rem;
+	transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+	border-color: #6b21a8;
+	outline: none;
+}
+
+/* Common Text Styles */
+.text-primary {
 	color: #6b21a8;
-	font-size: 2rem;
-	font-weight: 700;
-	text-align: center;
-	margin-bottom: 1.5rem;
+}
+
+.text-secondary {
+	color: #1d3940;
+}
+
+/* Common Layout Styles */
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 1rem;
+}
+
+.section {
+	padding: 4rem 0;
 }
 
 /* Product List */
@@ -54,46 +122,11 @@ h1 {
 	opacity: 0.8;
 }
 
-
-/* Form Styles */
-form {
-	background-color: white;
-	padding: 2rem;
-	border-radius: 1rem;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	max-width: 600px;
-	margin: auto;
-}
-
-/* Input Fields */
-input,
-textarea,
-select {
-	width: 100%;
-	padding: 1rem;
-	border: 1px solid #d1d5db;
-	border-radius: 0.5rem;
-	margin-bottom: 1rem;
-	transition: border-color 0.3s ease;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-	border-color: #6b21a8;
-	outline: none;
-}
-
-/* Button Styles */
-button {
-	background-color: #1d3940;
-	color: white;
-	padding: 0.75rem 1.5rem;
-	border-radius: 0.5rem;
-	cursor: pointer;
-	transition: background-color 0.3s ease;
-}
-
-button:hover {
-	background-color: #f59e0b;
+/* Header */
+h1 {
+	color: #6b21a8;
+	font-size: 2rem;
+	font-weight: 700;
+	text-align: center;
+	margin-bottom: 1.5rem;
 }

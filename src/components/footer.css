@@ -31,11 +31,14 @@
 .footer a {
 	color: #51565cf8;
 	text-decoration: none;
-	transition: color 0.3s ease;
+	transition: all 0.3s ease;
+	padding: 5px 10px;
+	border-radius: 4px;
 }
 
 .footer a:hover {
 	color: #cbd5e1;
+	background-color: rgba(255, 255, 255, 0.1);
 }
 
 .footer .space-y-2 {

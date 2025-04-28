@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App.tsx";
 import Home from "./pages/home.tsx";
 import MonCompte from "./pages/monCompte.tsx";
-import MoncompteModal from "./components/monCompteModal.tsx";
 import Welcome from "./components/welcome.tsx";
 import UserForm from "./components/userForm.tsx";
 import type { Product } from "./Types/Types.ts";
@@ -34,7 +33,33 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/productPage",
-				element: <ProductPage />,
+				element: (
+					<ProductPage
+						product={{
+							id: 1,
+							name: "Crème Réparatrice Nuit",
+							description:
+								"Crème pour réduire les imperfections pendant la nuit et nourrir la peau.",
+							skin_type: "tous types de peau",
+							ingredients: ["Acide hyaluronique", "Vitamine E", "Céramides"],
+							benefits: ["Hydratation", "Réparation", "Anti-âge"],
+							usage_instructions:
+								"Appliquer le soir sur peau propre et masser délicatement sur le visage",
+							contraindications: "Aucune",
+							price: 34.99,
+							product_type: "traitement",
+							product_url: "/images/creme-nuit.jpg",
+							brand: "Marque X",
+							volume: "50ml",
+						}}
+						onEdit={(product: Product) =>
+							console.log("Produit à éditer:", product)
+						}
+						onDelete={(id: number) =>
+							console.log("Produit supprimé avec id:", id)
+						}
+					/>
+				),
 			},
 			{
 				path: "/detailproducts",
@@ -49,28 +74,23 @@ const router = createBrowserRouter([
 							name: "Crème Réparatrice Nuit",
 							description:
 								"Crème pour réduire les imperfections pendant la nuit et nourrir la peau.",
+							skin_type: "tous types de peau",
+							ingredients: ["Acide hyaluronique", "Vitamine E", "Céramides"],
+							benefits: ["Hydratation", "Réparation", "Anti-âge"],
+							usage_instructions:
+								"Appliquer le soir sur peau propre et masser délicatement sur le visage",
+							contraindications: "Aucune",
 							price: 34.99,
 							product_type: "traitement",
-							product_url: "/images/creme-nuit.jpg", // Chemin correct de l'image
+							product_url: "/images/creme-nuit.jpg",
+							brand: "Marque X",
+							volume: "50ml",
 						}}
-						onEdit={(product: Product): void => {
+						onEdit={(product: Product) => {
 							console.log("Produit à éditer:", product);
 						}}
-						onDelete={(id?: number): void => {
-							if (id !== undefined) {
-								console.log("Produit supprimé avec id:", id);
-							}
-						}}
-					/>
-				),
-			},
-			{
-				path: "/MoncompteModal",
-				element: (
-					<MoncompteModal
-						isOpen={false}
-						onClose={() => {
-							console.log("Modal fermé");
+						onDelete={(id: number) => {
+							console.log("Produit supprimé avec id:", id);
 						}}
 					/>
 				),

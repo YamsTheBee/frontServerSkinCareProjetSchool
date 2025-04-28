@@ -1,71 +1,87 @@
-// import ProductCard from "../components/productscard/ProductCard";
+import type React from "react";
+import "../components/productscard/ProductCard.css";
+import type { Product } from "../Types/Types"; // Ensure the path is correct
 
-// export interface Product {
-// 	id?: number;
-// 	name: string;
-// 	description: string;
-// 	price: number;
-// 	product_type: "nettoyant" | "hydratant" | "traitement" | "masque";
-// 	product_url?: string;
-// }
+interface ProductCardProps {
+	product: Product;
+	onEdit: (product: Product) => void;
+	onDelete: (id: number) => void;
+}
 
-// const ProductPage = () => {
-// 	// Exemple de produit fictif
-// 	const fakeProduct: Product = {
-// 		id: 1,
-// 		name: "Crème hydratante",
-// 		description: "Hydrate la peau en profondeur",
-// 		price: 12.99,
-// 		product_type: "hydratant",
-// 		product_url: "public/images/gel-nettoyant-apaisant.jpg", // Assure-toi que cette image est dans /public/images/
-// 	};
-
-// 	return (
-// 		<div className="page">
-// 			<ProductCard
-// 				product={fakeProduct}
-// 				onEdit={(product) => {
-// 					console.log("Éditer produit :", product);
-// 				}}
-// 				onDelete={(id) => {
-// 					console.log("Supprimer produit avec ID :", id);
-// 				}}
-// 			/>
-// 		</div>
-// 	);
-// };
-
-// export default ProductPage;
-import { useEffect, useState } from "react";
-import ProductCard from "../components/productscard/ProductCard";
-import type { Product } from "../Types/Types"; // ou redéfinir l'interface ici
-
-const ProductPage = () => {
-	const [products, setProducts] = useState<Product[]>([]);
-
-	useEffect(() => {
-		fetch("http://localhost:4242/api/products") // Notez le /api/products ici
-			.then((res) => res.json())
-			.then((data) => {
-				setProducts(data);
-			})
-			.catch((err) => {
-				console.error("Erreur de chargement des produits :", err);
-			});
-	}, []);
+const ProductCard: React.FC<ProductCardProps> = ({
+	product,
+	onEdit,
+	onDelete,
+}) => {
+	const handleDelete = (id: number) => {
+		if (window.confirm("Êtes-vous sûr de vouloir supprimer ce produit ?")) {
+			onDelete(id);
+		}
+	};
 
 	return (
-		<div className="product-grid">
-			{products.map((product) => (
-				<ProductCard
-					key={product.id}
-					product={product}
-					onEdit={(p) => console.log("Éditer :", p)}
-					onDelete={(id) => console.log("Supprimer ID :", id)}
-				/>
-			))}
+		<div className="product-card">
+			<div className="product-card__header">
+				{product.product_url ? (
+					<img
+						src={product.product_url}
+						// biome-ignore lint/a11y/noRedundantAlt: <explanation>
+						alt={`Image du produit ${product.name}`}
+						className="product-card__image"
+					/>
+				) : (
+					<div className="product-card__image product-card__image--placeholder">
+						<span>Pas d'image disponible</span>
+					</div>
+				)}
+				<div className="product-card__type-badge">{product.product_type}</div>
+			</div>
+
+			<div className="product-card__content">
+				<h3 className="product-card__name">{product.name}</h3>
+				<p className="product-card__brand">{product.brand}</p>
+				<p className="product-card__description">{product.description}</p>
+
+				<div className="product-card__details">
+					<p className="product-card__price">
+						{new Intl.NumberFormat("fr-FR", {
+							style: "currency",
+							currency: "EUR",
+						}).format(product.price)}
+					</p>
+					<p className="product-card__volume">{product.volume}</p>
+				</div>
+
+				<div className="product-card__skin-type">
+					<span>Type de peau : {product.skin_type}</span>
+				</div>
+
+				{product.rating && (
+					<div className="product-card__rating">
+						<span>Note : {product.rating}/5</span>
+						{product.reviews && <span>({product.reviews} avis)</span>}
+					</div>
+				)}
+			</div>
+
+			<div className="product-card__buttons">
+				<button
+					type="button"
+					onClick={() => onEdit(product)}
+					className="product-card__button product-card__edit-button"
+				>
+					Modifier
+				</button>
+				<button
+					type="button"
+					onClick={() => handleDelete(product.id)}
+					className="product-card__button product-card__delete-button"
+				>
+					Supprimer
+				</button>
+			</div>
 		</div>
 	);
 };
 
-export default ProductPage;
+export default ProductCard;
